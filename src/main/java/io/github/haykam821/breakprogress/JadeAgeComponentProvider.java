@@ -7,14 +7,12 @@ import mcp.mobius.waila.api.ITooltip;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 
-public class BreakProgressComponentProvider implements IBlockComponentProvider {
+public class JadeAgeComponentProvider implements IBlockComponentProvider {
 	private static final MinecraftClient CLIENT = MinecraftClient.getInstance();
 
 	@Override
 	public void appendTail(ITooltip tooltip, IBlockAccessor accessor, IPluginConfig config) {
-		int progress = ((BreakProgressTracker) CLIENT.interactionManager).getBreakProgressPercent(CLIENT.getTickDelta());
-		if (progress > 0) {
-			tooltip.addLine(Text.translatable("text.breakprogress.tooltip", progress));
-		}
+		int age = 0;
+		tooltip.addLine(Text.translatable("text.wailaSpectrum.jadeage", age));
 	}
 }
